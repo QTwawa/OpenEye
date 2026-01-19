@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.module_video.LikeAnimation
 import com.example.module_video.R
 import com.example.module_video.adapter.OthersAdapter
+import com.example.module_video.bean.VideoFeedHelper
 import com.example.module_video.databinding.ActivityVideoBinding
 import com.example.module_video.viewmodel.OthersViewModel
 import xyz.doikki.videocontroller.StandardVideoController
@@ -27,6 +28,7 @@ class VideoActivity : AppCompatActivity() {
     private val mAdapter: OthersAdapter by lazy {
         OthersAdapter()
     }
+    private val videoFeedHelper= VideoFeedHelper(this)
     private lateinit var url:String
     private var isStared=false
     private var isLiked=false
@@ -61,9 +63,10 @@ class VideoActivity : AppCompatActivity() {
         mBinding.toolbar.setNavigationOnClickListener {
             finish()
         }
-        val recorded = getSharedPreferences(intent.getIntExtra("id",0).toString(), MODE_PRIVATE)
-        isLiked=recorded.getBoolean("isLiked",false)
-        isStared=recorded.getBoolean("isStared",false)
+        val videoFeed = videoFeedHelper.getVideoFeed(url)
+        isLiked=videoFeed.liked
+        isStared=videoFeed.collected
+        updateVideoFeed(url, isLiked, isStared)
         if(isLiked){
             mBinding.ivLikes.setImageResource(R.drawable.liked)
             mBinding.tvLikes.text= (mBinding.tvLikes.text.toString().toInt()+1).toString()
@@ -94,11 +97,13 @@ class VideoActivity : AppCompatActivity() {
                mBinding.ivLikes.setImageResource(R.drawable.liked)
                mBinding.tvLikes.text= (mBinding.tvLikes.text.toString().toInt()+1).toString()
                LikeAnimation.animateLike(mBinding.ivLikes)
+               updateVideoFeed(url, isLiked, isStared)
                isLiked=true
            }else{
                mBinding.ivLikes.setImageResource(R.drawable.like)
                mBinding.tvLikes.text= (mBinding.tvLikes.text.toString().toInt()-1).toString()
                LikeAnimation.animateLike(mBinding.ivLikes)
+               updateVideoFeed(url, isLiked, isStared)
                isLiked=false
            }
         }
@@ -107,11 +112,13 @@ class VideoActivity : AppCompatActivity() {
                 mBinding.ivStar.setImageResource(R.drawable.stared)
                 mBinding.tvStar.text= (mBinding.tvStar.text.toString().toInt()+1).toString()
                 LikeAnimation.animateLike(mBinding.ivStar)
+                updateVideoFeed(url, isLiked, isStared)
                 isStared=true
             }else{
                 mBinding.ivStar.setImageResource(R.drawable.star)
                 mBinding.tvStar.text= (mBinding.tvStar.text.toString().toInt()-1).toString()
                 LikeAnimation.animateLike(mBinding.ivStar)
+                updateVideoFeed(url, isLiked, isStared)
                 isStared=false
             }
         }
@@ -132,6 +139,10 @@ class VideoActivity : AppCompatActivity() {
         mBinding.video.setVideoController(controller) //设置控制器
         mBinding.video.setUrl(url) //设置视频地址
         mBinding.video.start() //开始播放，不调用则不自动播放
+    }
+
+    private fun updateVideoFeed(url: String, isLiked: Boolean, isStared: Boolean) {
+        videoFeedHelper.insertVideoFeed(url, isLiked, isStared)
     }
 
     override fun onPause() {
