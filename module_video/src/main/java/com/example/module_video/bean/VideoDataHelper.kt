@@ -5,6 +5,14 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+/**
+ * Created by Android Studio.
+ * User: 身为行
+ * Date: 2026/1/19
+ * Time: 10.00
+ * Describe: 数据库操作类
+ */
+
 class VideoDataHelper(val context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
 
     companion object {
