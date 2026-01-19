@@ -18,13 +18,9 @@ class BannerHelper {
     private lateinit var mData: List<DvItem>
     private val viewPager2Adapter: DailyBannerAdapter by lazy { DailyBannerAdapter() }
     private lateinit var rvAdapter: DailyRvAdapter
-    private var isDown:Boolean=false
     private val handler = Handler(Looper.getMainLooper())
     private val runnable = object : Runnable {
         override fun run() {
-            if (isDown){
-                return
-            }
             val currentItem = mViewPager2.currentItem
             val nextItem =  if (currentItem == mData.size - 1) 100 else currentItem + 1
             mViewPager2.setCurrentItem(nextItem, true)

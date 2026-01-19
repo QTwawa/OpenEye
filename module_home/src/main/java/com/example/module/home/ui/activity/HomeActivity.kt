@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
         _binding=ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = resources.getColor(R.color.black, null)
+        window.statusBarColor = resources.getColor(android.R.color.transparent, null)
         ARouter.getInstance().inject(this)
         initView()
     }
@@ -79,7 +79,6 @@ class HomeActivity : AppCompatActivity() {
                         show(communityFragment)
                     }.commit()
                 }
-
                 R.id.item_mine -> {
                     supportFragmentManager.beginTransaction().apply {
                         hide(foundFragment)

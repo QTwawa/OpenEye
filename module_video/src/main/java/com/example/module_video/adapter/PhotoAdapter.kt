@@ -49,7 +49,6 @@ class PhotoAdapter(list: List<String>): RecyclerView.Adapter<PhotoAdapter.PhotoV
 
         @SuppressLint("SetTextI18n")
         fun bind(data: String){
-            Log.d("4399", "bind: $data")
             Glide.with(itemView.context).load(data).apply(RequestOptions().fitCenter()).into(imageView)
             page.text= (absoluteAdapterPosition+1).toString() + "/" + photoData.size.toString()
             imageView.setOnClickListener {

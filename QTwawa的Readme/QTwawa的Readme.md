@@ -6,11 +6,11 @@
 
 
 
-![f9866db962d026b17c2beb311601039f 00_00_00-00_00_15](D:\FFOutput\f9866db962d026b17c2beb311601039f 00_00_00-00_00_15.gif)
+![f9866db962d026b17c2beb311601039f 00_00_00-00_00_15](https://github.com/QTwaiwai/OpenEye/blob/master/QTwawa%E7%9A%84Readme/f9866db962d026b17c2beb311601039f%2000_00_00-00_00_15.gif?raw=true)
 
 开始前会有一个Splash展示，首先的主框架用的是BottomNavigation+fragment实现了对这四个模块的跳转，然后再来讲讲首页的homefragment：
 
-![f9866db962d026b17c2beb311601039f 00_00_14-00_00_21](D:\FFOutput\f9866db962d026b17c2beb311601039f 00_00_14-00_00_21.gif)
+![f9866db962d026b17c2beb311601039f 00_00_14-00_00_21](https://github.com/QTwaiwai/OpenEye/blob/master/QTwawa%E7%9A%84Readme/f9866db962d026b17c2beb311601039f%2000_00_14-00_00_21.gif?raw=true)
 
 homefragment的大框架是Tablayout+Viewpager2+fragment的联动实现的日报和推荐的跳转。
 
@@ -20,7 +20,7 @@ homefragment的大框架是Tablayout+Viewpager2+fragment的联动实现的日报
 
 ## module_video:
 
-![f9866db962d026b17c2beb311601039f 00_00_21-00_00_52](D:\FFOutput\f9866db962d026b17c2beb311601039f 00_00_21-00_00_52.gif)
+![f9866db962d026b17c2beb311601039f 00_00_21-00_00_52](https://github.com/QTwaiwai/OpenEye/blob/master/QTwawa%E7%9A%84Readme/f9866db962d026b17c2beb311601039f%2000_00_21-00_00_52.gif?raw=true)
 
 module_video分为两个activity，通过点击来跳转到不同的activity。
 
@@ -28,7 +28,7 @@ module_video分为两个activity，通过点击来跳转到不同的activity。
 
 然后就是VideoActivity，使用的第三方库dkplayer，根据传过来的一系列数据组成上半部分，然后根据传入id来请求相关视频的数据，使用NestedScrollView+RecyclerView实现整体滚动效果，网络请求使用的是Retrofit和Rxjava，点赞收藏效果用的sp储存的。
 
-![77e61240f2b0fea3c1372e64ec3aa775](D:\FFOutput\77e61240f2b0fea3c1372e64ec3aa775.gif)
+![77e61240f2b0fea3c1372e64ec3aa775](https://github.com/QTwaiwai/OpenEye/blob/master/QTwawa%E7%9A%84Readme/77e61240f2b0fea3c1372e64ec3aa775.gif?raw=true00)
 
 ## 使用的技术栈
 

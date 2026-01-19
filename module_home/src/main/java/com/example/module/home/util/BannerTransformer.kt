@@ -37,6 +37,7 @@ class BannerTransformer:ViewPager2.PageTransformer {
         }
     }
     companion object {
+
         private const val MIN_SCALE = 0.85f
         private const val MIN_ALPHA = 0.5f
     }
