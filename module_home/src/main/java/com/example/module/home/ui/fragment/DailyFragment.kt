@@ -149,4 +149,8 @@ class DailyFragment : Fragment() {
         bannerHelper.destroy()
         _binding = null
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

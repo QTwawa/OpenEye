@@ -79,6 +79,4 @@ class RecommendAdapter :
             tvRecommendTitle.text = data.title
         }
     }
-
-
 }

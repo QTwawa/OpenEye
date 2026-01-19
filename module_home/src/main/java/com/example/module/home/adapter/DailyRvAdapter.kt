@@ -46,7 +46,7 @@ class DailyRvAdapter :
     override fun getItemViewType(position: Int): Int {
         return when (position) {
             0 -> 0
-            else -> 1
+            else -> position
         }
     }
 
@@ -74,7 +74,6 @@ class DailyRvAdapter :
                 holder.bind(getItem(position)!!)
             }
         }
-
     }
     fun interface OnClickedListener {
         fun onClicked(dailyData : DrData, view: View)

@@ -27,7 +27,6 @@ class DailyBannerAdapter :
         override fun areContentsTheSame(oldItem: DvItem, newItem: DvItem): Boolean {
             return oldItem.data == newItem.data
         }
-
     }) {
 
 
